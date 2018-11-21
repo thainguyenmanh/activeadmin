@@ -7,6 +7,11 @@ version: 2.1
     name: Install a specific bundler version
     command: gem install bundler -v 1.17.1
 
+.install_make: &install_make
+  run:
+    name: Install make so that sassc-rails extension builds
+    command: sudo apt install make
+
 .copy_current_gemfile: &copy_current_gemfile
   run:
     name: Cat current Gemfile to a specific file so caching works
@@ -116,6 +121,7 @@ version: 2.1
 .test_steps: &test_steps
   - checkout
   - *install_bundler
+  - *install_make
   - *copy_current_gemfile
   - *restore_cache
   - *install_dependencies
