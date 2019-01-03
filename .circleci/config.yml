@@ -25,7 +25,10 @@ version: 2.1
 .install_dependencies: &install_dependencies
   run:
     name: Install dependencies
-    command: bundle install --path /home/circleci/project/vendor/bundle --retry 3 --jobs 3
+    command: |
+      which bundle
+      cat $(which bundle)
+      bundle install --path /home/circleci/project/vendor/bundle --retry 3 --jobs 3
 
 .install_chromedriver: &install_chromedriver
   run:
