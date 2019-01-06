@@ -117,7 +117,7 @@ version: 2.1
 .run_bug_report_template: &run_bug_report_template
   run:
     name: Run bug report template
-    command: ACTIVE_ADMIN_PATH=. ruby tasks/bug_report_template.rb
+    command: BUNDLER_VERSION=2.0.1 ACTIVE_ADMIN_PATH=. ruby tasks/bug_report_template.rb
 
 .test_steps: &test_steps
   - checkout
